@@ -1,0 +1,11 @@
+---
+- name: Copy source file to target
+  copy:
+    src: sample.ora
+    dest: /home/ubuntu/sample.ora
+    owner: ubuntu
+- name: replace IP with new IP
+  replace:
+    path: /home/ubuntu/sample.ora
+    regexp: '(HOST = ([0-9]{1,3}[\\.]){3}[0-9]{1,3})'
+    replace: 'HOST = {{ targetip }}'

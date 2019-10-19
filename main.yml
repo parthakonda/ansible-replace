@@ -1,0 +1,9 @@
+---
+- name: Copy and replace IP
+  hosts: web
+  become: yes
+  become_user: root
+  remote_user: ubuntu
+  gather_facts: no
+  roles:
+    - replace
